@@ -1,0 +1,7 @@
+<%= form_for @beer, url: {action: "create"} do |f| %>
+  Name: <%= f.text_field :name %>
+  Category: <%= f.text_field :category %>
+  Percent Alcohol: <%= f.number_field :alc_percent, :class => 'text_field', :step => 'any' %>
+  Description: <%= f.text_field :description %>
+  <%= f.submit "Submit" %>
+<% end %>
