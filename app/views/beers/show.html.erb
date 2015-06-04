@@ -1,0 +1,16 @@
+<h2><%=@beer.name%></h2>
+
+<h4>Facts</h4>
+  <ul>
+    <li>Category: <%=@beer.category%></li>
+    <li>Percent Alcohol: <%=@beer.alc_percent%></li>
+  </ul>
+
+<h4>Comments</h4>
+  <ul>
+  <% @comments.each do |c| %>
+    <li><%=c.content%></li>
+  <%end%>
+  </ul>
+
+<a href="/beers">Back to All Beers</a>
