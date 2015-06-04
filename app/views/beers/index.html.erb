@@ -1,3 +1,8 @@
+<h2>Beers</h2>
+<div>
 <% @beers.each do |b| %>
-  <%= b.name %>
+<ul>
+  <li><a href="/beers/<%=b.id%>"><%=b.category%>: <%= b.name %> (<%=b.alc_percent%>)</a></li>
+</ul>
 <% end %>
+</div>
