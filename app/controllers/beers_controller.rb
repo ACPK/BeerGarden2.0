@@ -7,7 +7,7 @@ class BeersController < ApplicationController
   end
 
   def show
-    @beer = Beer.find(params[:id])
+    @beer = Beer.find_by(id: params[:id])
     @comments = @beer.comments
   end
 
@@ -18,14 +18,23 @@ class BeersController < ApplicationController
   def create
     beer = Beer.new(beer_params)
     if beer.save
-      redirect_to '/beers/#{beer.id}'
+      redirect_to "/beers/#{beer.id}"
     else
       redirect_to '/beers'
     end
   end
 
   def edit
-    @beer = Beer.
+    @beer = Beer.find_by(id: params[:id])
+  end
+
+  def update
+      @beer = Beer.find_by(id: params[:id])
+      if @beer.update_attributes(beer_params)
+        redirect_to "/beers/#{@beer.id}"
+      else
+        redirect_to '/beers'
+      end
   end
 
   private
