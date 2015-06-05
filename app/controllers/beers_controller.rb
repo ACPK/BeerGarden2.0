@@ -38,6 +38,7 @@ class BeersController < ApplicationController
   end
 
   private
+
   def beer_params
     params.require(:beer).permit(:name, :category, :alc_percent, :description).merge(:user_id => @current_user.id)
   end
