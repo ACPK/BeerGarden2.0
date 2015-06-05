@@ -4,8 +4,10 @@
   <ul>
     <li>Category: <%=@beer.category%></li>
     <li>Percent Alcohol: <%=@beer.alc_percent%></li>
+    <li>Description: <%=@beer.description%></li>
   </ul>
 
+<%= link_to "Add New Comment", new_comment_path %>
 <h4>Comments</h4>
   <ul>
   <% @comments.each do |c| %>
@@ -13,5 +15,7 @@
   <%end%>
   </ul>
 
+<% if current_user.id == @beer.user_id %>
 <a href="/beers/<%=@beer.id%>/edit">Edit Beer</a>
+<% end %>
 <a href="/beers">Back to All Beers</a>

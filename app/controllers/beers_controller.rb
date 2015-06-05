@@ -29,15 +29,16 @@ class BeersController < ApplicationController
   end
 
   def update
-      @beer = Beer.find_by(id: params[:id])
-      if @beer.update_attributes(beer_params)
-        redirect_to "/beers/#{@beer.id}"
-      else
-        redirect_to '/beers'
-      end
+    @beer = Beer.find_by(id: params[:id])
+    if @beer.update_attributes(beer_params)
+      redirect_to "/beers/#{@beer.id}"
+    else
+      redirect_to '/beers'
+    end
   end
 
   private
+
   def beer_params
     params.require(:beer).permit(:name, :category, :alc_percent, :description).merge(:user_id => @current_user.id)
   end

@@ -1,0 +1,8 @@
+<!-- TODO: FIX FORM -->
+
+<%= form_for @user, url: {action: "update"} do |f| %>
+  First Name: <%= f.text_field :first_name %>
+  Last Name: <%= f.text_field :last_name %>
+  Location: <%= f.text_field :location %>
+  <%= f.submit "Submit" %>
+<% end %>

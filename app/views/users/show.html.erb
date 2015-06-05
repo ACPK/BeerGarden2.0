@@ -1,0 +1,10 @@
+<h1><%=@user.username%></h1>
+<h4>Last signed in at: <%=@user.updated_at%></h4>
+
+<ul>
+  <li>Name: <%=@user.first_name%> <%=@user.last_name%></li>
+  <li>Location: <%=@user.location%></li>
+</ul>
+
+<a href="/users/<%=@user.id%>/edit">Edit My Information</a>
+<a href="/beers/new">Add New Beer</a>
